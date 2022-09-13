@@ -11,3 +11,18 @@ export async function getMovie(id) {
     const responce = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&page=1&language=en`);
     return responce.data;
 }
+
+export async function getCast(id) {
+    const responce = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&page=1&language=en`);
+    return responce.data.cast;
+}
+
+export async function getReviews(id) {
+    const responce = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&page=1&language=en`);
+    return responce.data.results;
+}
+
+export async function searhMovies(query) {
+    const responce = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&page=1&language=en`);
+    return responce.data.results;
+}
