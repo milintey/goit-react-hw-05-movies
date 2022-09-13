@@ -1,4 +1,4 @@
-import { Route, Routes, NavLink } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from '../components/GlobalStyle/GlobalStyle';
 import { HomePage } from './page/HomePage';
 import { MoviesPage } from './page/MoviesPage';
