@@ -8,12 +8,14 @@ export const HomePage = () => {
   const location = useLocation();
 
   useEffect(() => {
-    trendingMovies().then(res => setMovies(res));
+    trendingMovies()
+      .then(res => setMovies(res))
+      .catch(error => console.log(error));
   }, []);
 
   return (
-    <div>
-      <MoviesList movies={movies} location={location} />
-    </div>
+    <div>{movies && <MoviesList movies={movies} location={location} />}</div>
   );
 };
+
+export default HomePage;

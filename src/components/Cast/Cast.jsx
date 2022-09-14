@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCast } from 'components/helpers/getMovies';
+import { CastList } from './Cast.styled';
 
 export const Cast = () => {
   const [casts, setCasts] = useState([]);
@@ -15,7 +16,7 @@ export const Cast = () => {
 
   return (
     <div>
-      <ul>
+      <CastList>
         {casts.map(cast => {
           return (
             <li key={cast.cast_id}>
@@ -28,7 +29,9 @@ export const Cast = () => {
             </li>
           );
         })}
-      </ul>
+      </CastList>
     </div>
   );
 };
+
+export default Cast;

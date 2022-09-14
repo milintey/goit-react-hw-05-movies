@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { searhMovies } from 'components/helpers/getMovies';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const MoviesPage = () => {
   const [query, setQuery] = useState('');
@@ -13,7 +14,9 @@ export const MoviesPage = () => {
     if (query === '') {
       return;
     }
-    searhMovies(query).then(res => setMovies(res));
+    searhMovies(query)
+      .then(res => setMovies(res))
+      .catch(error => console.log(error));
   }, [query]);
 
   const updateQueryString = name => {
@@ -44,7 +47,9 @@ export const MoviesPage = () => {
         </button>
       </form>
 
-      {movies && (
+      <div>{movies && <MoviesList movies={movies} location={location} />}</div>
+
+      {/* {movies && (
         <ul>
           {movies.map(movie => {
             return (
@@ -61,7 +66,9 @@ export const MoviesPage = () => {
             );
           })}
         </ul>
-      )}
+      )} */}
     </div>
   );
 };
+
+export default MoviesPage;
