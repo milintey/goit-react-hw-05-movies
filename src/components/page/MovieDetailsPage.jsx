@@ -10,7 +10,6 @@ import {
 
 export const MovieDetailsPage = () => {
   const location = useLocation();
-  console.log(location);
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
 
